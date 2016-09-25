@@ -49,4 +49,19 @@ public class MainActivity extends AppCompatActivity {
         tipTextView.setText(currencyFormat.format(tip));
         totalTextView.setText(currencyFormat.format(total));
     }
+
+    private final SeekBar.OnSeekBarChangeListener seekBarListener =
+        new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                percent = progress / 100.0;
+                calculate();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        };
 }
